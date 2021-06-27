@@ -18,8 +18,8 @@ class CreateFilesTable extends Migration
             $table->uuid('uuid');
             $table->string('name');
             $table->string('extension');
-            $table->int('size');
-            $table->int('structure_parent');
+            $table->integer('size');
+            $table->integer('structure_parent');
             $table->string('user_upload');
             $table->timestamps();
         });

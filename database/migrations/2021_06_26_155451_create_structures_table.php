@@ -2,9 +2,10 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStructureTable extends Migration
+class CreateStructuresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +14,18 @@ class CreateStructureTable extends Migration
      */
     public function up()
     {
-        Schema::create('structure', function (Blueprint $table) {
+        Schema::create('structures', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid');
             $table->string('name');
-            $table->int('structure_parent');
+            $table->integer('structure_parent')->nullable();
             $table->string('path');
             $table->timestamps();
         });
+        Artisan::call('db:seed',[
+            '--force' => true,
+            '--class' => 'StructureSeeder'
+        ]);
     }
 
     /**

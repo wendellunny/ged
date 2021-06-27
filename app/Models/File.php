@@ -15,5 +15,5 @@ class File extends Model
         'size',
         'structure_parent',
         'user_upload'
-    ]
+    ];
 }
