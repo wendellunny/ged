@@ -1,3 +1,10 @@
+<p>Caminho</p>
+<div>
+    @foreach ($caminho as $structure)
+        <a href="{{route('folder.view',$structure->uuid)}}"> {{$structure->name}} </a> /
+    @endforeach
+</div>
+
 <ul>
     <form action="{{route('folder.create',$folder->uuid)}}" method="post">@csrf
         <input type="text" name='name'>
