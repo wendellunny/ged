@@ -40,4 +40,11 @@ class StructuresController extends Controller
     public function renameFOlder(){
 
     }
+
+    public function update(Request $request, $id){
+        $dataForm = $request->all();
+        $folder = Structure::find($id);
+        $folder->update($dataForm);
+        return redirect()->back();
+    }
 }

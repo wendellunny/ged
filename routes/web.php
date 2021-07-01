@@ -18,8 +18,9 @@ Route::get('/', [StructuresController::class,'viewFolder'])->name('folder.root')
 
 
 
-Route::resource('structure', StructuresController::class);
+
 
 Route::post('/make-directory/{uuid}',[StructuresController::class,'createFolder'])->name('folder.create');
 Route::get('folder/{uuid}',[StructuresController::class,'viewFolder'])->name('folder.view');
 Route::delete('folder/{id}',[StructuresController::class,'deleteFolder'])->name('folder.delete');
+Route::resource('structure', StructuresController::class);
